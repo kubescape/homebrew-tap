@@ -1,15 +1,35 @@
 class Kubescape < Formula
-  desc "ARMO's kubescape is a tool for testing if Kubernetes is deployed securely"
-  homepage "https://github.com/armosec/kubescape"
-  url "https://github.com/armosec/kubescape/releases/download/v1.0.109/kubescape-macos-latest"
-  sha256 "7e75f0f1e6026b5d3b2b94fd0ddcd0a3121b96c3af2e65dd002a1fa8b28cbe6b"
+  desc "Kubernetes testing according to Hardening Guidance by NSA and CISA"
+  homepage "https://www.armosec.io/armo-kubescape"
+  url "https://github.com/armosec/kubescape/archive/refs/tags/v1.0.109.tar.gz"
+  sha256 "6527e688b62188679d52a79befd3e77cc13801b87db419963e06d85a3a502bcd"
   license "Apache-2.0"
 
+  depends_on "go" => :build
+
   def install
-    bin.install "kubescape-macos-latest" =>  "kubescape"
+    ldflags = %W[
+      -s -w
+      -X github.com/armosec/kubescape/cmd.BuildNumber=v#{version}
+      -X github.com/armosec/kubescape/cautils/getter.ArmoBEURL=api.armo.cloud
+      -X github.com/armosec/kubescape/cautils/getter.ArmoERURL=report.armo.cloud
+      -X github.com/armosec/kubescape/cautils/getter.ArmoFEURL=portal.armo.cloud
+    ].join(" ")
+
+    system "go", "build", *std_go_args(ldflags: ldflags)
+
+    output = Utils.safe_popen_read(bin/"kubescape", "completion", "bash")
+    (bash_completion/"kubescape").write output
+    output = Utils.safe_popen_read(bin/"kubescape", "completion", "zsh")
+    (zsh_completion/"_kubescape").write output
+    output = Utils.safe_popen_read(bin/"kubescape", "completion", "fish")
+    (fish_completion/"kubescape").write output
   end
 
   test do
-    system "false"
+    assert_match version.to_s, shell_output("#{bin}/kubescape version")
+
+    manifest = "https://raw.githubusercontent.com/GoogleCloudPlatform/microservices-demo/master/release/kubernetes-manifests.yaml"
+    assert_match "FAILED RESOURCES", shell_output("#{bin}/kubescape scan framework nsa #{manifest}")
   end
 end
