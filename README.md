@@ -1,2 +1,2 @@
 # homebrew-kubescape
-Homebrew for ARMO Kubescape
+Homebrew for Kubescape
