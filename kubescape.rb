@@ -1,5 +1,5 @@
 class Kubescape < Formula
-  desc "ARMO's kubescape is a tool for testing if Kubernetes is deployed securely"
+  desc "Kubernetes testing according to Hardening Guidance by NSA and CISA"
   homepage "https://github.com/armosec/kubescape"
   url "https://github.com/armosec/kubescape/releases/download/v1.0.117/kubescape-macos-latest"
   sha256 "8574cb24f964adb51223121aed77370f389309d1503fcee041b37894c89b5810"
