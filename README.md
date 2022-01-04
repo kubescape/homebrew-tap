@@ -8,11 +8,16 @@ Homebrew for Kubescape
 url "https://github.com/armosec/kubescape/releases/download/<version>/kubescape-macos-latest"
 ```
 2. Set the executable hash
-```
-sha256 "<sha256>"
-```
-
-Find the sha256 ->
-* Download latest release
-    Make sure you have the right location of the latest release (run `whereis kubescape` and then make sure the version is the latest)
-* Get the sha256 -> `sha256sum /home/david/.local/bin/kubescape`
+    * Download kubescape-macos-latest:  
+        ```
+        curl -L https://github.com/armosec/kubescape/releases/latest/download/kubescape-macos-latest -o kubescape-macos-latest
+        ```
+    * Calculate sha 
+        ```
+        sha256sum kubescape-macos-latest
+        ```
+    * Set the executable hash in `kubescape.rb`
+        ```
+        sha256 "<sha256>"
+        ```
+ 
