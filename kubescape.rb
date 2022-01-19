@@ -3,7 +3,7 @@ class Kubescape < Formula
   homepage "https://github.com/armosec/kubescape"
   head "https://github.com/armosec/kubescape/releases/latest/download/kubescape-macos-latest"
   url "https://github.com/armosec/kubescape/releases/download/v2.0.141/kubescape-macos-latest"
-  sha256 "2f608f8a20763d56769970b7da7e5c76a81178453f280b1f7b598266d4c1aceb"
+  sha256 "7e9a16b42403ddcddfbeb1f256d3e3dda863a4371570c3439d5413b5837006f8"
   license "Apache-2.0"
 
   def install
