@@ -2,7 +2,7 @@ class Kubescape < Formula
   desc "Kubernetes testing according to Hardening Guidance by NSA and CISA"
   homepage "https://github.com/armosec/kubescape"
   head "https://github.com/armosec/kubescape/releases/latest/download/kubescape-macos-latest"
-  url "https://github.com/armosec/kubescape/releases/download/v1.0.137/kubescape-macos-latest"
+  url "https://github.com/armosec/kubescape/releases/download/v2.0.141/kubescape-macos-latest"
   sha256 "2f608f8a20763d56769970b7da7e5c76a81178453f280b1f7b598266d4c1aceb"
   license "Apache-2.0"
 
