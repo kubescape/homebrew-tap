@@ -31,9 +31,9 @@ class KubescapeCli < Formula
       -s -w
       -X github.com/armosec/kubescape/v2/core/cautils.BuildNumber=v#{version}
     ]
-
+    
     system "make", "libgit2"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "static", "-o", "kubescape"
+    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "static", "-o", bin/"kubescape"
 
     output = Utils.safe_popen_read(bin/"kubescape", "completion", "bash")
     (bash_completion/"kubescape").write output
