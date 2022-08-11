@@ -1,5 +1,5 @@
-# homebrew-kubescape
-Homebrew tap for Kubescape
+# kubescape/homebrew-cli
+Homebrew tap for Kubescape CLI
 
 ## Installation
 
