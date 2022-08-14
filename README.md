@@ -10,6 +10,10 @@ brew tap kubescape/tap
 brew install kubescape-cli
 ```
 
+```
+kubescape scan
+```
+
 ## Upgrade
 
 ```
