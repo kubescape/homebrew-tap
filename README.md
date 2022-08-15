@@ -1,23 +1,25 @@
-# homebrew-kubescape
-Homebrew for Kubescape
+# homebrew-tap
 
-## Update homebrew-kubescape release
+Homebrew formulae that allows installation of Kubescape through the [Homebrew](https://brew.sh/) package manager.
 
-1. Set URL with the latest version (you must provide a fixed version and not latest)
+
+## Installation
+
 ```
-url "https://github.com/armosec/kubescape/releases/download/<version>/kubescape-macos-latest"
+brew tap kubescape/tap
+brew install kubescape-cli
 ```
-2. Set the executable hash
-    * Download kubescape-macos-latest:  
-        ```
-        curl -L https://github.com/armosec/kubescape/releases/latest/download/kubescape-macos-latest -o kubescape-macos-latest
-        ```
-    * Calculate sha 
-        ```
-        sha256sum kubescape-macos-latest
-        ```
-    * Set the executable hash in `kubescape.rb`
-        ```
-        sha256 "<sha256>"
-        ```
- 
+
+```
+kubescape scan
+```
+
+## Upgrade
+
+```
+brew update && brew upgrade
+```
+
+## Documentation
+
+`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh/)
