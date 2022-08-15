@@ -1,6 +1,6 @@
 # homebrew-tap
 
-Homebrew formulae that allows installation of Kubescape through the [Homebrew](https://brew.sh/) package manager.
+Homebrew formulae that allows installation of [Kubescape](https://github.com/armosec/kubescape) through the [Homebrew](https://brew.sh/) package manager.
 
 
 ## Installation
