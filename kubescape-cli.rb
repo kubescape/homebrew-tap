@@ -1,10 +1,10 @@
 class KubescapeCli < Formula
-  desc "Kubernetes testing according to Hardening Guidance by NSA and CISA"
-  homepage "https://github.com/armosec/kubescape"
-  url "https://github.com/armosec/kubescape/archive/v2.0.166.tar.gz"
-  sha256 "e74534ebf0bf0cecd9e2187f04c2f2f8656afd6797591fcbb31de606aaa8caa4"
+  desc "Kubernetes misconfiguration testing"
+  homepage "https://github.com/kubescape/kubescape"
+  url "https://github.com/kubescape/kubescape/archive/v2.0.171.tar.gz"
+  sha256 "e772a21a4ab37f822734446d1a2906ced5a657822f7319f43beea0271203772e"
   license "Apache-2.0"
-  head "https://github.com/armosec/kubescape.git", branch: "master"
+  head "https://github.com/kubescape/kubescape.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "go" => :build
@@ -29,7 +29,7 @@ class KubescapeCli < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/armosec/kubescape/v2/core/cautils.BuildNumber=v#{version}
+      -X github.com/kubescape/kubescape/v2/core/cautils.BuildNumber=v#{version}
     ]
     
     system "make", "libgit2"
