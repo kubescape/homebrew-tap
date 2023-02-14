@@ -33,7 +33,7 @@ class KubescapeCli < Formula
     ]
     
     system "make", "libgit2"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "static", "-o", bin/"kubescape"
+    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "static,gitenabled", "-o", bin/"kubescape"
 
     output = Utils.safe_popen_read(bin/"kubescape", "completion", "bash")
     (bash_completion/"kubescape").write output
