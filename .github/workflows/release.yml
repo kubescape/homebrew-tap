@@ -1,0 +1,25 @@
+name: Release with upstream
+
+on:
+  workflow_dispatch:  # Allow manual triggers
+  push:
+    # Publish `v1.2.3` tags as releases.
+    tags:
+      - v*
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the changed files back to the repository.
+      contents: write
+    steps:
+    - uses: actions/checkout@v3
+    - name: Update repo
+      run: |
+        . ./update.sh
+        echo "version=${VLATEST:1}" >> $GITHUB_ENV
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+        commit_message: Bump KS version ${{ env.version }}
