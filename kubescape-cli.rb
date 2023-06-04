@@ -1,8 +1,8 @@
 class KubescapeCli < Formula
   desc "Kubernetes misconfiguration testing"
   homepage "https://github.com/kubescape/kubescape"
-  url "https://github.com/kubescape/kubescape/archive/v2.3.4.tar.gz"
-  sha256 "776701cc131f3755dde88b2eddb49917b36d3cdf0bf4cf453cb3eb742b73d7d8"
+  url "https://github.com/kubescape/kubescape/archive/v2.3.5.tar.gz"
+  sha256 "c4ca222be7739c2d2f30d352eacc9d69a0601ceb96f0740701b49cfcba6a2aa8"
   license "Apache-2.0"
   head "https://github.com/kubescape/kubescape.git", branch: "master"
 
