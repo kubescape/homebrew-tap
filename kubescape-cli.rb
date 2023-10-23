@@ -29,7 +29,7 @@ class KubescapeCli < Formula
 
     ldflags = %W[
       -s -w
-      -X github.com/kubescape/kubescape/v2/core/cautils.BuildNumber=v#{version}
+      -X github.com/kubescape/kubescape/v3/core/cautils.BuildNumber=v#{version}
     ]
     
     system "make", "libgit2"
