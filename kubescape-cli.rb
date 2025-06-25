@@ -1,30 +1,15 @@
 class KubescapeCli < Formula
   desc "Kubernetes misconfiguration testing"
   homepage "https://github.com/kubescape/kubescape"
-  url "https://github.com/kubescape/kubescape/archive/v3.0.3.tar.gz"
-  sha256 "b58712f9ef8c270db9f8772f3cadbd5dcb6ee881850379e20f0730c38ce771f6"
+  url "https://github.com/kubescape/kubescape/archive/v3.0.34.tar.gz"
+  sha256 "1da5a3a7b1ef8f38569ee6277fa8cf9d747f9fe379c9283011c7464b7c1003de"
   license "Apache-2.0"
   head "https://github.com/kubescape/kubescape.git", branch: "master"
 
-  depends_on "cmake" => :build
   depends_on "go" => :build
-  depends_on "pkg-config" => :build
-
-  resource "git2go" do
-    url "https://github.com/libgit2/git2go/archive/refs/tags/v33.0.9.tar.gz"
-    sha256 "bcdaa5ed86d7ad513f51cdd80006a23a7fa9d9e68db06b3ce39a25a4196e4d67"
-  end
-
-  resource "libgit2" do
-    url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.3.0.tar.gz"
-    sha256 "192eeff84596ff09efb6b01835a066f2df7cd7985e0991c79595688e6b36444e"
-  end
 
   def install
-    resource("git2go").stage(buildpath/"git2go")
-    resource("libgit2").stage(buildpath/"git2go/vendor/libgit2")
 
-    ENV["CGO_ENABLED"] = "1"
     ENV["GOCACHE"] = buildpath/"cache"
 
     ldflags = %W[
@@ -32,7 +17,6 @@ class KubescapeCli < Formula
       -X github.com/kubescape/kubescape/v3/core/cautils.BuildNumber=v#{version}
     ]
     
-    system "make", "libgit2"
     system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "static,gitenabled", "-o", bin/"kubescape"
 
     output = Utils.safe_popen_read(bin/"kubescape", "completion", "bash")
