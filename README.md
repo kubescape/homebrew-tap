@@ -1,3 +1,5 @@
+> **Archived:** This repository is archived and no longer updated. Install Kubescape from the [official Homebrew repository](https://formulae.brew.sh/formula/kubescape) via `brew install kubescape`.
+
 # homebrew-tap
 
 Homebrew formulae that allows installation of [Kubescape](https://github.com/armosec/kubescape) through the [Homebrew](https://brew.sh/) package manager.
